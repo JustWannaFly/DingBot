@@ -1,0 +1,17 @@
+#pragma once
+
+#include <string>
+#include <dpp/dpp.h>
+
+using namespace std;
+
+class ACommand
+{
+private:
+	shared_ptr<dpp::cluster> bot;
+public:
+	ACommand(shared_ptr<dpp::cluster> bot);
+	static string getInvokeText();
+	virtual string getHelpText() = 0;
+	virtual bool execute(const dpp::message_create_t* event, list<string> args) = 0;
+};
