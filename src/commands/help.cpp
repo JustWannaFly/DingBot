@@ -1,4 +1,4 @@
-#include "commands/help.h"
+#include "commands/Help.h"
 
 using namespace std;
 

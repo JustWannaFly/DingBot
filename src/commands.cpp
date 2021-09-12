@@ -1,6 +1,8 @@
 #include <dpp/dpp.h>
 #include <commands/ACommand.h>
-#include "commands/help.h"
+#include "commands/Help.h"
+#include "commands/Ding.h"
+#include "commands/Poll.h"
 
 using namespace std;
 
@@ -9,31 +11,15 @@ class Commands {
 	shared_ptr<dpp::cluster> bot;
 	const dpp::message_create_t* event;
 
-	typedef void (Commands::*MemberFunc)(list<string>);
-	unordered_map <string, MemberFunc> commands;
 	unordered_map<string, unique_ptr<ACommand>> objCommands;
 
 
-	void ding(list<string> args) {
-		cout << "inside ding" << endl;
-		bot->message_create(dpp::message(event->msg->channel_id, "dong!"));
-	}
-	void help(list<string> args) {
-		cout << "inside help" << endl;
-		bot->message_create(dpp::message(event->msg->channel_id, "I'm helping...\nSort of"));
-	}
-	void poll(list<string> args) {
-		cout << "inside poll" << endl;
-		bot->message_create(dpp::message(event->msg->channel_id, "Someday I'll be able to make a poll..."));
-	}
 public:
 	Commands(shared_ptr<dpp::cluster> botParam) {
 		bot = botParam;
 		objCommands.insert(make_pair(Help::getInvokeText(), unique_ptr<ACommand> (new Help(bot))));
-
-		//commands.insert(make_pair("help", &Commands::help));
-		commands.insert(make_pair("ding", &Commands::ding));
-		commands.insert(make_pair("poll", &Commands::poll));
+		objCommands.insert(make_pair(Ding::getInvokeText(), unique_ptr<ACommand> (new Ding(bot))));
+		objCommands.insert(make_pair(Poll::getInvokeText(), unique_ptr<ACommand>(new Poll(bot))));
 	}
 	void parseCommand(const dpp::message_create_t& eventRef) {
 		
@@ -59,10 +45,7 @@ public:
 				}
 			}
 		}
-		MemberFunc funcPtr = commands[func];
-		if (funcPtr != nullptr) {
-			return (this->*funcPtr)(args);
-		} else if (objCommands[func] != nullptr) {
+		if (objCommands[func] != nullptr) {
 			objCommands[func]->execute(event, args);
 			return;
 		}

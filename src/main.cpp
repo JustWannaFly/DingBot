@@ -1,6 +1,6 @@
 #include <dpp/dpp.h>
 #include <iostream>
-#include "commands.cpp"
+#include "Commands.cpp"
 
 int main()
 {

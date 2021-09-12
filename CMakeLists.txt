@@ -6,7 +6,7 @@ add_subdirectory(libs/DPP)
 
 add_executable(${PROJECT_NAME}
     src/main.cpp
- "src/commands.cpp"  "src/commands/help.cpp"  "headers/commands/ACommand.h" "headers/commands/help.h" "src/commands/ACommand.cpp")
+ "src/Commands.cpp"  "src/commands/Help.cpp"  "headers/commands/ACommand.h" "headers/commands/Help.h" "src/commands/ACommand.cpp" "headers/commands/Ding.h" "src/commands/Ding.cpp" "headers/commands/Poll.h" "src/commands/Poll.cpp")
 
 target_link_libraries(${PROJECT_NAME}
     dpp
