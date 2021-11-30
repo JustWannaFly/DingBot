@@ -4,7 +4,7 @@
 
 int main()
 {
-    shared_ptr<dpp::cluster> bot(new dpp::cluster("ODgyNjcyOTU2NDc4NzE4MDAz.YS-zQA.h3znlsz1gIsBfBwuGoiy_Bkb_J4"));
+    shared_ptr<dpp::cluster> bot(new dpp::cluster("Token Provided By Discord"));
     Commands commands(bot);
 
     bot->on_ready([&bot](const dpp::ready_t& event) {
