@@ -2,3 +2,5 @@ out/
 libs/
 .vs/
 .vscode/
+CmakeFiles/
+build/
