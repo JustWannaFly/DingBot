@@ -2,9 +2,10 @@
 #include <iostream>
 #include "Commands.cpp"
 
-int main()
+int main(int argc, char *argv[])
 {
-    shared_ptr<dpp::cluster> bot(new dpp::cluster("Token Provided By Discord"));
+    char* token = argv[1];
+    shared_ptr<dpp::cluster> bot(new dpp::cluster(token));
     Commands commands(bot);
 
     bot->on_ready([&bot](const dpp::ready_t& event) {

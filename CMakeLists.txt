@@ -5,8 +5,18 @@ project(DingBot VERSION 1.0)
 add_subdirectory(libs/DPP)
 
 add_executable(${PROJECT_NAME}
-    src/main.cpp
- "src/Commands.cpp"  "src/commands/Help.cpp"  "headers/commands/ACommand.h" "headers/commands/Help.h" "src/commands/ACommand.cpp" "headers/commands/Ding.h" "src/commands/Ding.cpp" "headers/commands/Poll.h" "src/commands/Poll.cpp")
+    "headers/commands/ACommand.h"
+    "headers/commands/Ding.h"
+    "headers/commands/Help.h"
+    "headers/commands/Poll.h"
+
+    "src/main.cpp"
+    "src/Commands.cpp"
+    "src/commands/ACommand.cpp"
+    "src/commands/Help.cpp" 
+    "src/commands/Ding.cpp"
+    "src/commands/Poll.cpp"
+ "src/commands/Advent.cpp" "headers/commands/Advent.h")
 
 target_link_libraries(${PROJECT_NAME}
     dpp

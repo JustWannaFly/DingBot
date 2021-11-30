@@ -4,3 +4,4 @@ libs/
 .vscode/
 CmakeFiles/
 build/
+x64/
