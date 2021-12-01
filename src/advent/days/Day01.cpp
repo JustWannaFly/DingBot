@@ -12,9 +12,28 @@ string Day01::calculate(string part) {
 }
 
 string Day01::part1() {
-	return "Sorry but I can't do this yet";
+	vector<int> depths = getInputInts("01-1");
+	int timesDeeper = 0;
+	for (int i = 0, j = 1; j < depths.size(); i++, j++) {
+		if (depths[i] < depths[j]) {
+			timesDeeper++;
+		}
+	}
+	return "It got deeper " + to_string(timesDeeper) + " times";
 }
 
 string Day01::part2() {
-	return "Sorry but I can't do this yet";
+	vector<int> depths = getInputInts("01-1");
+	vector<int> windows;
+	for (int i = 0, j = 1, k = 2; k < depths.size(); i++, j++, k++) {
+		windows.push_back(depths[i] + depths[j] + depths[k]);
+	}
+
+	int timesDeeper = 0;
+	for (int i = 0, j = 1; j < windows.size(); i++, j++) {
+		if (windows[i] < windows[j]) {
+			timesDeeper++;
+		}
+	}
+	return "The windows got deeper " + to_string(timesDeeper) + " times";
 }
