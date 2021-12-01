@@ -2,8 +2,9 @@
 
 using namespace std;
 
-Help::Help(shared_ptr<dpp::cluster> bot) : ACommand(bot) {
+Help::Help(shared_ptr<dpp::cluster> bot, shared_ptr<unordered_map<string, unique_ptr<ACommand>>> commands) : ACommand(bot) {
 	this->bot = bot;
+	this->objCommands = commands;
 }
 
 string Help::getInvokeText() { 
@@ -18,11 +19,19 @@ string Help::getHelpText() {
 
 bool Help::execute(const dpp::message_create_t* event, vector<string> args) {
 	string messageContent;
+	shared_ptr<vector<string>> foo;
 	if (args.size() == 0) {
-		messageContent = "Someday I'll tell list all the commands that I support, but not quite yet...";
+		vector<string> commands;
+		for (auto iter = objCommands->begin(); iter != objCommands->end(); ++iter) {
+			commands.push_back(iter->first);
+		}
+		messageContent = "Here's a list of all the supported commands";
+		for (string command : commands) {
+			messageContent = messageContent + "\n" + command;
+		}
 	}
 	else {
-		messageContent = "Someday I'll tell you details about the \"" + args.front() +"\" command";
+		messageContent = objCommands->at(args[0])->getHelpText();
 	}
 	bot->message_create(dpp::message(event->msg->channel_id, messageContent));
 	return true;

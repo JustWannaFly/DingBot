@@ -12,7 +12,7 @@ string Day01::calculate(string part) {
 }
 
 string Day01::part1() {
-	vector<int> depths = getInputInts("01-1");
+	vector<int> depths = getInputInts("01");
 	int timesDeeper = 0;
 	for (int i = 0, j = 1; j < depths.size(); i++, j++) {
 		if (depths[i] < depths[j]) {
@@ -23,7 +23,7 @@ string Day01::part1() {
 }
 
 string Day01::part2() {
-	vector<int> depths = getInputInts("01-1");
+	vector<int> depths = getInputInts("01");
 	vector<int> windows;
 	for (int i = 0, j = 1, k = 2; k < depths.size(); i++, j++, k++) {
 		windows.push_back(depths[i] + depths[j] + depths[k]);

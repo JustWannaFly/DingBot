@@ -13,7 +13,8 @@ string Advent::getInvokeText()
 }
 
 string Advent::getHelpText() {
-	return "Calculates a specific advent of code challenge. Command is '!aoc 1 1' for day 1 part 1";
+	return "Calculates a specific advent of code challenge. Command is '!aoc 1 1' for day 1 part 1\n"
+		"For more information go to www.adventofcode.com";
 }
 
 bool Advent::execute(const dpp::message_create_t* event, vector<string> args) {
@@ -27,9 +28,9 @@ bool Advent::execute(const dpp::message_create_t* event, vector<string> args) {
 	string resultMessage;
 	string output;
 	if (days[day] != nullptr) {
-		bot->message_create(dpp::message(event->msg->channel_id, "Calculating Day: " + day + " Part: " + part));
+		bot->message_create(dpp::message(event->msg->channel_id, "Calculating Advent of Code Day: " + day + " Part: " + part));
 		output = days[day]->calculate(part);
-		resultMessage = "Result for Day: " + day + " Part: " + part + "::\n" + output;
+		resultMessage = "==== Result for Day: " + day + " Part: " + part + " ====\n" + output;
 	}
 	else {
 		resultMessage = "Sorry but I don't yet have the challenge for day " + day;

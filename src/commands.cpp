@@ -19,7 +19,8 @@ class Commands {
 public:
 	Commands(shared_ptr<dpp::cluster> botParam) {
 		bot = botParam;
-		objCommands.insert(make_pair(Help::getInvokeText(), unique_ptr<ACommand> (new Help(bot))));
+		shared_ptr<unordered_map<string, unique_ptr<ACommand>>> commandPtr(&objCommands);
+		objCommands.insert(make_pair(Help::getInvokeText(), unique_ptr<ACommand> (new Help(bot, commandPtr))));
 		objCommands.insert(make_pair(Ding::getInvokeText(), unique_ptr<ACommand> (new Ding(bot))));
 		objCommands.insert(make_pair(Poll::getInvokeText(), unique_ptr<ACommand>(new Poll(bot))));
 		objCommands.insert(make_pair(Advent::getInvokeText(), unique_ptr<ACommand>(new Advent(bot))));

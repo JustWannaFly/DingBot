@@ -11,7 +11,6 @@ private:
 	shared_ptr<dpp::cluster> bot;
 public:
 	ACommand(shared_ptr<dpp::cluster> bot);
-	static string getInvokeText();
 	virtual string getHelpText() = 0;
 	virtual bool execute(const dpp::message_create_t* event, vector<string> args) = 0;
 };
