@@ -3,6 +3,8 @@
 #include "commands/Help.h"
 #include "commands/Ding.h"
 #include "commands/Poll.h"
+#include "commands/Advent.h"
+#include <vector>
 
 using namespace std;
 
@@ -20,6 +22,7 @@ public:
 		objCommands.insert(make_pair(Help::getInvokeText(), unique_ptr<ACommand> (new Help(bot))));
 		objCommands.insert(make_pair(Ding::getInvokeText(), unique_ptr<ACommand> (new Ding(bot))));
 		objCommands.insert(make_pair(Poll::getInvokeText(), unique_ptr<ACommand>(new Poll(bot))));
+		objCommands.insert(make_pair(Advent::getInvokeText(), unique_ptr<ACommand>(new Advent(bot))));
 	}
 	void parseCommand(const dpp::message_create_t& eventRef) {
 		
@@ -30,7 +33,7 @@ public:
 		string piece;
 
 		string func;
-		list<string> args;
+		vector<string> args;
 		command += " "; // Add a space to the end to grab the last piece
 		while ((pos = command.find(" ")) != string::npos) {
 			piece = command.substr(0, pos);

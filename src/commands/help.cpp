@@ -16,7 +16,7 @@ string Help::getHelpText() {
 		"To see the details about an command enter \"!help <command>\"";
 }
 
-bool Help::execute(const dpp::message_create_t* event, list<string> args) {
+bool Help::execute(const dpp::message_create_t* event, vector<string> args) {
 	string messageContent;
 	if (args.size() == 0) {
 		messageContent = "Someday I'll tell list all the commands that I support, but not quite yet...";

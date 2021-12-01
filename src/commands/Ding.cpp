@@ -14,7 +14,7 @@ string Ding::getHelpText() {
 	return "Responds to a \"!ding\" with a \"dong!\"";
 }
 
-bool Ding::execute(const dpp::message_create_t* event, list<string> args) {
+bool Ding::execute(const dpp::message_create_t* event, vector<string> args) {
 	bot->message_create(dpp::message(event->msg->channel_id, "dong!"));
 	return true;
 };

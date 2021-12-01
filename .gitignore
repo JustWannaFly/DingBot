@@ -5,3 +5,4 @@ libs/
 CmakeFiles/
 build/
 x64/
+enc_temp_folder/
