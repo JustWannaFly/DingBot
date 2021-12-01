@@ -2,10 +2,19 @@
 #include "advent/Input.h"
 
 string Day01::calculate(string part) {
-	int sum = 0;
-	vector<int> numbers = getInputInts("01-1");
-	for (int number : numbers) {
-		sum += number;
+	if (part == "1") {
+		return part1();
 	}
-	return to_string(sum);
+	if (part == "2") {
+		return part2();
+	}
+	return "Sorry don't have that part....";
+}
+
+string Day01::part1() {
+	return "Sorry but I can't do this yet";
+}
+
+string Day01::part2() {
+	return "Sorry but I can't do this yet";
 }

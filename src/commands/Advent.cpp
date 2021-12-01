@@ -24,13 +24,16 @@ bool Advent::execute(const dpp::message_create_t* event, vector<string> args) {
 	}
 	string day = args[0];
 	string part = args[1];
-	bot->message_create(dpp::message(event->msg->channel_id, "Calculating Day: " + day + " Part: " + part));
+	string resultMessage;
 	string output;
 	if (days[day] != nullptr) {
+		bot->message_create(dpp::message(event->msg->channel_id, "Calculating Day: " + day + " Part: " + part));
 		output = days[day]->calculate(part);
-
+		resultMessage = "Result for Day: " + day + " Part: " + part + "::\n" + output;
 	}
-	string resultMessage = "Result for Day: " + day + " Part: " + part + "::\n" + output;
+	else {
+		resultMessage = "Sorry but I don't yet have the challenge for day " + day;
+	}
 	bot->message_create(dpp::message(event->msg->channel_id, resultMessage));
 	return true;
 };
