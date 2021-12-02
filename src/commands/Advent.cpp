@@ -1,10 +1,12 @@
 #include "commands/Advent.h"
 #include "advent/days/ADay.h"
 #include "advent/days/Day01.h"
+#include "advent/days/Day02.h"
 
 Advent::Advent(shared_ptr<dpp::cluster> bot) : ACommand(bot) {
 	this->bot = bot;
 	days.insert(make_pair("1", unique_ptr<ADay>(new Day01())));
+	days.insert(make_pair("2", unique_ptr<ADay>(new Day02())));
 }
 
 string Advent::getInvokeText()
