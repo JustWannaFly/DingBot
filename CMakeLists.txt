@@ -16,7 +16,7 @@ add_executable(${PROJECT_NAME}
     "src/commands/Help.cpp" 
     "src/commands/Ding.cpp"
     "src/commands/Poll.cpp"
- "src/commands/Advent.cpp" "headers/commands/Advent.h"   "src/advent/Input.cpp" "headers/advent/days/ADay.h"  "headers/advent/days/Day01.h" "src/advent/days/Day01.cpp" "headers/advent/Input.h" "headers/advent/days/Day02.h" "src/advent/days/Day02.cpp" "src/advent/days/ADay.cpp")
+ "src/commands/Advent.cpp" "headers/commands/Advent.h"   "src/advent/Input.cpp" "headers/advent/days/ADay.h"  "headers/advent/days/Day01.h" "src/advent/days/Day01.cpp" "headers/advent/Input.h" "headers/advent/days/Day02.h" "src/advent/days/Day02.cpp" "src/advent/days/ADay.cpp" "headers/advent/days/Day03.h" "src/advent/days/Day03.cpp")
 
 target_link_libraries(${PROJECT_NAME}
     dpp
