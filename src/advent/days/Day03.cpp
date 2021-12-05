@@ -2,7 +2,7 @@
 #include "advent/Input.h"
 
 string Day03::part1() {
-	vector<string> inputs = getInputStrings("03");
+	vector<string> inputs = readInputFile("03");
 	vector<int> oneCounts = {};
 	for (auto c : inputs[0]) {
 		oneCounts.push_back(0);
@@ -38,7 +38,7 @@ string Day03::part1() {
 }
 
 string Day03::part2() {
-	vector<string> inputs = getInputStrings("03");
+	vector<string> inputs = readInputFile("03");
 	vector<string> possibleMostValues = inputs;
 	vector<string> possibleLeastValues = inputs;
 	vector<string> zeros;

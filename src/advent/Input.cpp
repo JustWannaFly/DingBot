@@ -1,6 +1,6 @@
 #include "advent/Input.h"
 
-vector<string> getInputStrings(string filename) {
+vector<string> readInputFile(string filename) {
     string line;
     vector<string> lines;
     string fileDir = "C:/aocInput/";
@@ -18,13 +18,27 @@ vector<string> getInputStrings(string filename) {
     return lines;
 }
 
-vector<int> getInputInts(string filename)
+vector<int> parseInts(vector<string> strings)
 {
     vector<int> ints;
-    vector<string> strings = getInputStrings(filename);
     for (string str : strings) {
         ints.push_back(stoi(str));
     }
     return ints;
+}
+
+vector<int> parseCSVInts(string s)
+{
+    s = s + ","; // so last number is grabbed
+    vector<int> nums;
+    int pos;
+    while ((pos = s.find(",")) != string::npos) {
+        string part = s.substr(0, pos);
+        if (part != "") {
+            nums.push_back(stoi(part));
+        }
+        s.erase(0, pos + 1);
+    }
+    return nums;
 }
 

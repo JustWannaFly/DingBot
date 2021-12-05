@@ -2,7 +2,7 @@
 #include "advent/Input.h"
 
 string Day02::part1() {
-	vector<string> inputs = getInputStrings("02");
+	vector<string> inputs = readInputFile("02");
 	int horizontal = 0;
 	int vertical = 0;
 	for (auto line : inputs) {
@@ -19,7 +19,7 @@ string Day02::part1() {
 }
 
 string Day02::part2() {
-	vector<string> inputs = getInputStrings("02");
+	vector<string> inputs = readInputFile("02");
 	int horizontal = 0;
 	int vertical = 0;
 	int aim = 0;
