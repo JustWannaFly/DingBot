@@ -42,3 +42,16 @@ vector<int> parseCSVInts(string s)
     return nums;
 }
 
+vector<string> parseStrVector(string str, string seperator) {
+    vector<string> strings;
+    int pos;
+    str += seperator;
+    while ((pos = str.find(" ")) != string::npos) {
+        if (str.substr(0, pos) != "") {
+            strings.push_back(str.substr(0, pos));
+        }
+        str.erase(0, pos + seperator.size());
+    }
+    return strings;
+}
+
